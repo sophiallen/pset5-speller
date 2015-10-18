@@ -1,0 +1,25 @@
+0.  //      The longest word in the dictionary. It sets the maximum length a word can be. 
+1.  //      Getrusage returns the resource usage of different processes run by the 
+    // user or program. 
+2.  //      There are sixteen members in the struct rusage, which measure different
+    // aspects of the resources being used. 
+3.  //      Before and after are passed in by reference, even though their values
+    // won't be changed because ... calculate takes pointers? 
+4.  //      Starting with the for loop, speller reads an int from the file, until it 
+    // reaches the end of the file. It then checks to see what ASCII value that int has. 
+    // If the ASCII value is a letter or apostrophe, or if it's the terminator of a word, 
+    // speller then stores that character to the [INDEX'th] space of WORD. It then 
+    // keeps going until it reaches the end of the word (as marked by the terminator)
+    // or discovers that what it was reading was not actually a word (if it is too long,
+    // has a numerical value somewhere). If it gets to the end of a word, it appends \0 to 
+    // signify the end of the word. The program then calls check to return bool misspelled
+    // and if the word fails the check, returns misspelled as true, printfs the word,
+    // and increments the misspelling count. It then resets index to 0, and moves to 
+    // the next word. 
+5.  // Perhaps fscanf would misread a word that has an apostrophe, or accidentally read too
+    // far since we don't know the lenth of the word before-hand. 
+6.  
+7.  TODO
+8.  TODO
+9.  TODO
+10. TODO

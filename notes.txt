@@ -1,0 +1,110 @@
+apple
+AABBD
+banana
+cowboy
+c
+dog
+dsf
+gg
+r
+//here's the old initiate
+for (int i = 0; i<CAPACITY; i++)
+    {
+        table[i] = malloc(sizeof(node));
+        
+        if (table[i] == NULL)
+        {
+            printf("not enough memory for table[%i]\n", i);
+            free(table[i]);
+            return 2; 
+        }
+        else
+        {
+        table[i]->word = NULL;
+        table[i]->next = NULL;
+        }
+    } 
+
+
+
+
+
+
+    //for each head node in the has table..
+for (int n = 0; n < CAPACITY; n++)
+{
+    //go to the head of the list, remember it. 
+    node* ptr = table[n];
+    
+    //let's make sure we didn't accidentally read the wrong thing. 
+    if (ptr == NULL)
+    {
+        return false;
+    }
+    
+    //check to see if there are other nodes after it. 
+    while (ptr->next != NULL)
+    {
+        //if there is a linked node, remember where the old one was...
+        node* prev = ptr;
+        
+        //move ptr to the link
+        ptr = prev->next;
+        
+        //then free up the old data and node...
+        free(prev->word);
+        free(prev);
+        
+        //repeat (this is a while loop)
+    }
+    
+    //if we got to this point, then there is no link...
+    //we must be at the end of the list, or there were no links. 
+    //all that's left is to free the data and node. 
+        
+        free(ptr->word);
+        free(ptr);
+}
+    
+    //then tell the bool we had success. 
+    return true;
+
+
+
+
+
+//here's the old code that had invalid frees. 
+for (int n= 0; n<CAPACITY; n++)
+    { 
+        node* current = table[n];
+        
+        while (current != NULL)
+        {
+            char* data = current->word;
+            
+            if (data != NULL)
+            {
+                free(current->word);
+            }
+            
+            if (current->next != NULL)
+            {
+                node* newptr = current;
+                current = newptr->next;
+                free(newptr->next);
+                free(newptr);   
+            }  
+              
+            if (current->next == NULL)
+            {
+                free(current);
+                break;
+            }
+        }             
+    }
+    
+    return true;
+
+
+
+
